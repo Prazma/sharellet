@@ -153,10 +153,20 @@
 				const unp = document.getElementById("userport");
 				var kene = document.getElementById("kene").value;
 				var kenepro = kene * 1;
-				inp.style.bottom = "10px";
-				unp.innerHTML = '<span style="font-size: 20px;">'+kenepro+'円を割りかん</span>';
-				unp.innerHTML += '<br><input type="text" placeholder="名前" class="texput"><br><div style="margin-top: 5px;"><select class="btn"><option value="1">用途を選択</option><option value="1">払う</option><option value="2">食べる</option><option value="2">使う</option><option value="1">あげる</option></select><button class="btn purp" onclick="addprop()">＋追加</button>';
-				document.getElementById("list").style.opacity = "1";
+				if(kenepro <= 10) {
+				} else {
+					inp.style.bottom = "10px";
+					unp.innerHTML = '<span style="font-size: 20px;">'+kenepro+'円を割りかん</span><button class="btn purp" onclick="cnclmon()" style="width: 90%">キャンセル</button>';
+					unp.innerHTML += '<br><input type="text" placeholder="名前" class="texput"><br><div style="margin-top: 5px;"><select class="btn"><option value="1">用途を選択</option><option value="1">払う</option><option value="2">食べる</option><option value="2">使う</option><option value="1">あげる</option></select><button class="btn purp" onclick="addprop()">＋追加</button>';
+					document.getElementById("list").style.opacity = "1";
+				}
+			}
+			function cnclmon() {
+				const inp = document.getElementById("proport");
+				const unp = document.getElementById("userport");
+				inp.style.bottom = "200px";
+				unp.innerHTML = '<span style="font-size: 25px;">金額を設定</span><input type="number" placeholder="金額" class="texput" id="kene"><br><button class="btn purp" onclick="newmon()" style="width: 90%">＋新規作成</button>';
+				document.getElementById("list").style.opacity = "0";
 			}
 		</script>
 	</body>
