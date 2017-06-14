@@ -9,7 +9,9 @@
 				margin: 0;
 			}
 			#proport{
-				margin-top: 50px;
+				position: fixed;
+				bottom: 10px;
+				width: 100%;
 			}
 			.btn {
 				-webkit-appearance: button;
@@ -41,6 +43,7 @@
 				-webkit-appearance: none;
 				-moz-appearance: none;
 				appearance: none;
+				width: 45%;
 			}
 			.texput {
 				min-height: 34px;
@@ -56,6 +59,7 @@
 				border-radius: 3px;
 				outline: none;
 				box-shadow: inset 0 1px 2px rgba(27,31,35,0.075);
+				width: 87%;
 			}
 			#userport {
 				text-align: center;
@@ -73,9 +77,38 @@
 				background-image: linear-gradient(-180deg, #6576C6 0%, #39469C 90%);
 				color: #ffffff;
 			}
+			#navix {
+				position: fixed;
+				top: 0;
+				background: #39469C;
+				width: 100%;
+				color: white;
+				font-size: 35px;
+				font-family: monospace;
+				padding: 0px 0px 5px 0px;
+				box-shadow: 0px 3px 10px #6576C6;
+			}
+			#list {
+				margin-top: 50px;
+				background: #f1f1f1;
+				width: 90%;
+				padding: 8px;
+				margin-left: auto;
+				margin-right: auto;
+				border: 1px #bfbfbf solid;
+				border-radius: 3px;
+				text-align: center;
+				font-family: sans-serif;
+			}
 		</style>
 	</head>
 	<body>
+		<div id="list">
+			<span id="alex">登録されている人がいないよ</span>
+		</div>
+		<div id="navix">
+			<span class="logo" style="margin-left: 10px;">w</span>
+		</div>
 		<div id="proport">
 			<div id="userport">
 				<input type="text" placeholder="名前" class="texput"><br>
@@ -87,7 +120,7 @@
 						<option value="2">使う</option>
 						<option value="1">あげる</option>
 					</select>
-					<button class="btn purp">＋追加</button>
+					<button class="btn purp" onclick="addprop()">＋追加</button>
 				</div>
 			</div>
 		</div>
