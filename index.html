@@ -7,11 +7,14 @@
 			body {
 				background: #fafbfc;
 				margin: 0;
+				font-family: sans-serif;
 			}
 			#proport{
 				position: fixed;
-				bottom: 10px;
+				bottom: 200px;
 				width: 100%;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
 			}
 			.btn {
 				-webkit-appearance: button;
@@ -44,6 +47,7 @@
 				-moz-appearance: none;
 				appearance: none;
 				width: 45%;
+				margin: 5px;
 			}
 			.texput {
 				min-height: 34px;
@@ -99,30 +103,60 @@
 				border-radius: 3px;
 				text-align: center;
 				font-family: sans-serif;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
+			}
+			#splash {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				height: 100vh;
+				background: #ffffff;
+				text-align: center;
+				color: #ffffff;
+				transition: 0.5s;
+				-webkit-transition: 0.5s;
 			}
 		</style>
 	</head>
 	<body>
-		<div id="list">
+		<div id="list" style="opacity: 0;">
 			<span id="alex">登録されている人がいないよ</span>
 		</div>
 		<div id="navix">
-			<span class="logo" style="margin-left: 10px;">w</span>
+			<span class="logo" style="margin-left: 10px; font-weight: bolder;">w</span>
 		</div>
 		<div id="proport">
 			<div id="userport">
-				<input type="text" placeholder="名前" class="texput"><br>
-				<div style="margin-top: 5px;">
-					<select class="btn">
-						<option value="1">用途を選択</option>
-						<option value="1">払う</option>
-						<option value="2">食べる</option>
-						<option value="2">使う</option>
-						<option value="1">あげる</option>
-					</select>
-					<button class="btn purp" onclick="addprop()">＋追加</button>
-				</div>
+				<span style="font-size: 25px;">金額を設定</span>
+				<input type="number" placeholder="金額" class="texput" id="kene"><br>
+				<button class="btn purp" onclick="newmon()" style="width: 90%">＋新規作成</button>
 			</div>
 		</div>
+		<div id="splash">
+			<br><br>
+			<span style="font-size: 30px; font-family: monospace; font-weight: bolder;">wellet</span>
+		</div>
+		<script>
+			const spla = document.getElementById("splash");
+			setTimeout( function () {
+				spla.style.background = "#39469c";
+			}, 1000)
+			setTimeout( function () {
+				spla.style.opacity = "0";
+			}, 2000)
+			setTimeout( function () {
+				spla.style.display = "none";
+			}, 2700)
+			function newmon() {
+				const inp = document.getElementById("proport");
+				const unp = document.getElementById("userport");
+				var kene = document.getElementById("kene").value;
+				inp.style.bottom = "10px";
+				unp.innerHTML = '<span style="font-size: 20px;">'+kene+'円を割りかん</span>';
+				unp.innerHTML += '<br><input type="text" placeholder="名前" class="texput"><br><div style="margin-top: 5px;"><select class="btn"><option value="1">用途を選択</option><option value="1">払う</option><option value="2">食べる</option><option value="2">使う</option><option value="1">あげる</option></select><button class="btn purp" onclick="addprop()">＋追加</button>';
+				document.getElementById("list").style.opacity = "1";
+			}
+		</script>
 	</body>
 </html>
